@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- <link rel="stylesheet" type="text/css" href="lib/bootstrap/dist/css/bootstrap.css"> -->
+</head>
+<body>
+<div data-bind="template: {name: currentContent}"></div>
+
+<script type="text/html" id="manyPosts">
+    <button data-bind="click: getPrev, visible: showPrev">Prev</button>
+    <button data-bind="click: getNext, visible: showNext">Next</button>
+    <ul data-bind="foreach: posts">
+        <li>
+            <span data-bind="text: $data.title"></span>
+            <button data-bind="click: () => $root.getSinglePost($data.link)">Select</button>
+            <!-- <a data-bind="text: $data.title, ttr: {href: $data.link, title: $data.title}"></a> -->
+        </li>
+    </ul>
+</script>
+<script type="text/html" id="singlePost">
+    <button data-bind="click: changeTemplate">Back</button>
+    <h1 data-bind="text: postTitle"></h1>
+    <div data-bind="html: postBody"></div>
+    <ul data-bind="foreach: answers">
+        <li>
+            <span data-bind="text: $data.creationDate"></span>
+            <span data-bind="text: $data.score"></span>
+            <span data-bind="html: $data.body"></span>
+        </li>
+    </ul>
+</script>
+
+
+
+
+
+<script data-main="main.js" src="lib/requirejs/require.js"></script>
+</body>
+</html>
