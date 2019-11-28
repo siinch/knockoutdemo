@@ -1,0 +1,10 @@
+<button data-bind="click: back">Back</button>
+<h1 data-bind="text: postTitle"></h1>
+<div data-bind="html: postBody"></div>
+<ul data-bind="foreach: answers">
+    <li>
+        <span data-bind="text: $data.creationDate"></span>
+        <span data-bind="text: $data.score"></span>
+        <span data-bind="html: $data.body"></span>
+    </li>
+</ul>
