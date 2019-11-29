@@ -51,13 +51,10 @@ define (["knockout", "postService", "app"], function (ko, ps, app) {
         var changeView = function (link) {
             link = link.slice(link.lastIndexOf("/") + 1 , link.length);
             shared.postId = parseInt(link);
-            console.log("bøh");
             currentContent("singlePost");
         };
 
         return {
-            currentContent,
-            shared,
             prev,
             next,
             showPrev,

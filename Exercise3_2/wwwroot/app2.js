@@ -12,7 +12,6 @@ define (["knockout", "postService", "app"], function (ko, ps, app) {
         };
 
         var getSinglePost = function () {
-            console.log(shared.postId);
             ps.getPost(function (data) {
                 postTitle(data.title);
                 postBody(data.body);
